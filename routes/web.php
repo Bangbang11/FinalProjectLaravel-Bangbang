@@ -37,5 +37,10 @@ Route::group(['prefix' => 'semua','middleware'=>'sentinel'], function() {
 //route for Admin
 Route::group(['prefix' => 'Admin','middleware'=>['sentinel','hasAdmin']], function() {
     Route::get('homeAdmin','AdminController@index')->name('homeAdmin');
+    Route::get('categoryCreate','CategorysController@create')->name('category.create');
+    Route::get('jobCreate','JobsController@create')->name('job.create');
+    Route::get('jobIndex','JobsController@index')->name('job.index');
+    Route::get('biodataCreate','BiodatasController@create')->name('biodata.create');
+    Route::get('biodataIndex','BiodatasController@index')->name('biodata.index');
 });
 
