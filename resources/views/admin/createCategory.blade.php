@@ -30,16 +30,18 @@
           </div>
           <!-- /.card-header -->
           <!-- form start -->
-          <form role="form">
+          <form role="form" action="{{route('category.store')}}" method="post" >
+              {{ csrf_field() }}
             <div class="card-body">
               <div class="form-group">
                 <label for="name">Job Category Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Job Category Name">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Job Category Name">
+                <div class="text-danger">{!!$errors->first('name')!!}</div>
               </div>
             </div>
             <!-- /.card-body -->
             <div class="card-footer">
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <input type="submit" class="btn btn-primary" value="SAVE">
             </div>
           </form>
         </div>

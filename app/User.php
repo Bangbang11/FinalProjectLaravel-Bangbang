@@ -35,4 +35,9 @@ class User extends Authenticatable
     public function biodata() {
         return $this->hasOne('App\Biodata','id_user');
     }
+    
+    public function role_user()
+    {
+        return $this->hasOne('App\Roleuser','user_id','id');
+    }
 }

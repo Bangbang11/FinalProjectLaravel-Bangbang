@@ -16,16 +16,14 @@ class CreateBiodatasTable extends Migration
         Schema::create('biodatas', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_user');
-            $table->string('name');
-            $table->string('email');
-            $table->text('address');
-            $table->string('contact_no');
-            $table->date('date_of_birth');
-            $table->string('gender');
-            $table->string('education');
-            $table->string('nationality');
-            $table->string('cv');
-            $table->string('photo');
+            $table->text('address')->nullable();
+            $table->string('contact_no')->nullable();
+            $table->date('date_of_birth')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('education')->nullable();
+            $table->string('nationality')->nullable();
+            $table->string('cv')->nullable();
+            $table->string('photo')->nullable();
             $table->timestamps();
         });
     }

@@ -38,9 +38,15 @@ Route::group(['prefix' => 'semua','middleware'=>'sentinel'], function() {
 Route::group(['prefix' => 'Admin','middleware'=>['sentinel','hasAdmin']], function() {
     Route::get('homeAdmin','AdminController@index')->name('homeAdmin');
     Route::get('categoryCreate','CategorysController@create')->name('category.create');
+    Route::post('categoryStore','CategorysController@store')->name('category.store');
     Route::get('jobCreate','JobsController@create')->name('job.create');
+    Route::post('jobStore','JobsController@store')->name('job.store');
+    Route::get('jobEdit/{id}','JobsController@edit')->name('job.edit');
+    Route::post('jobUpdate/{id}','JobsController@update')->name('job.update');
+    Route::get('jobDestroy/{id}','JobsController@destroy')->name('job.destroy');
     Route::get('jobIndex','JobsController@index')->name('job.index');
     Route::get('biodataCreate','BiodatasController@create')->name('biodata.create');
+    Route::post('biodataStore','BiodatasController@store')->name('biodata.store');
     Route::get('biodataIndex','BiodatasController@index')->name('biodata.index');
 });
 
