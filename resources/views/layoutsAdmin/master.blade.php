@@ -40,16 +40,6 @@
     </ul>
 
     <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
@@ -82,7 +72,7 @@
           <img src="{{asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{ Sentinel::getUser()->first_name }}</a>
+          <a href="#" class="d-block">{{ Sentinel::getUser()->first_name }} {{ Sentinel::getUser()->last_name }}</a>
         </div>
       </div>
 
@@ -103,7 +93,7 @@
             <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
             <li class="nav-item has-treeview menu-open">
               <a href="#" class="nav-link active">
-                <i class="nav-icon fas fa-desktop"></i>
+                <i class="nav-icon fas fa-briefcase"></i>
                 <p>
                   Jobs
                   <i class="right fas fa-angle-left"></i>
@@ -112,19 +102,19 @@
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="{{route('category.create')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                    <i class="far fa-plus-square nav-icon"></i>
                     <p>Input Job Category</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="{{route('job.create')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                    <i class="far fa-plus-square nav-icon"></i>
                     <p>Input New Job</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="{{route('job.index')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                    <i class="far fa-list-alt nav-icon"></i>
                     <p>List Jobs</p>
                   </a>
                 </li>
@@ -135,7 +125,7 @@
             <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
             <li class="nav-item has-treeview menu-open">
               <a href="#" class="nav-link active">
-                <i class="nav-icon fas fa-desktop"></i>
+                <i class="nav-icon fas fa-users"></i>
                 <p>
                   User
                   <i class="right fas fa-angle-left"></i>
@@ -144,13 +134,13 @@
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="{{route('biodata.create')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                    <i class="far fa-plus-square nav-icon"></i>
                     <p>Input New User</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="{{route('biodata.index')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                    <i class="far fa-list-alt nav-icon"></i>
                     <p>List Users</p>
                   </a>
                 </li>
@@ -160,12 +150,33 @@
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
               <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
               <li class="nav-item has-treeview menu-open">
-                <a href="{{route('jobapplication.index')}}" class="nav-link active">
-                  <i class="nav-icon fas fa-desktop"></i>
+                <a href="#" class="nav-link active">
+                  <i class="fas fa-file-alt nav-icon"></i>
                   <p>
                     Job Applications
+                    <i class="right fas fa-angle-left"></i>
                   </p>
                 </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{route('jobapplication.index')}}" class="nav-link">
+                      <i class="fas fa-spinner nav-icon"></i>
+                      <p>Waiting Job Applications</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{route('jobapplication.approve')}}" class="nav-link">
+                      <i class="far fa-check-circle nav-icon"></i>
+                      <p>Approve Job Applications</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{route('jobapplication.reject')}}" class="nav-link">
+                      <i class="far fa-times-circle nav-icon"></i>
+                      <p>Reject Job Applications</p>
+                    </a>
+                  </li>
+                </ul>
               </li>
             </ul>
       </nav>

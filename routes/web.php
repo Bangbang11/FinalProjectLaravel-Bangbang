@@ -58,5 +58,11 @@ Route::group(['prefix' => 'Admin','middleware'=>['sentinel','hasAdmin']], functi
     Route::get('biodataDestroy/{id}','BiodatasController@destroy')->name('biodata.destroy');
     Route::get('biodataIndex','BiodatasController@index')->name('biodata.index');
     Route::get('jobapplicationIndex','JobApplicationsController@index')->name('jobapplication.index');
+    Route::get('jobapplicationApprove','JobApplicationsController@approve')->name('jobapplication.approve');
+    Route::get('jobapplicationApproveStore/{id}','JobApplicationsController@approve_store')->name('approve.store');
+    Route::get('jobapplicationReject','JobApplicationsController@reject')->name('jobapplication.reject');
+    Route::get('jobapplicationRejectStore/{id}','JobApplicationsController@reject_store')->name('reject.store');
+    Route::get('jobapplicationShow/{id}','JobApplicationsController@show')->name('jobapplication.show');
+    Route::get('jobapplicationCV/{id}','JobApplicationsController@cv')->name('cv');
 });
 

@@ -25,7 +25,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">DataTable with default features</h3>
+              <h3 class="card-title">Jobs List Table</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -60,7 +60,7 @@
                     <td><img src="{!! '/photos/company_photos/'.$data->photo !!}" style="width:50px;height:50px;" alt="foto"></td>
                     <td>
                       <a href="{{route('job.edit',$data->id)}}"><button class="btn btn-primary" ><i class="fas fa-edit"></i></button></a>
-                      <a href="{{ route('job.destroy',$data->id)}}"><button class="btn btn-danger" ><i class="fas fa-trash-alt"></i></button></a>
+                      {{--  <a href="{{ route('job.destroy',$data->id)}}"><button class="btn btn-danger" ><i class="fas fa-trash-alt"></i></button></a>  --}}
                     </td>
                   </tr>
                   @endforeach

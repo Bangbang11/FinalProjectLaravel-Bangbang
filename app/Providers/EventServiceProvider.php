@@ -18,6 +18,12 @@ class EventServiceProvider extends ServiceProvider
         ],
         'App\Events\ReminderEvent' => [
             'App\Listeners\ReminderEmailSender',
+        ],
+        'App\Events\ApproveEvent' => [
+            'App\Listeners\ApproveEmailSender',
+        ],
+        'App\Events\RejectEvent' => [
+            'App\Listeners\RejectEmailSender',
         ]
     ];
 
