@@ -30,8 +30,14 @@ Route::post('forgot-password','ReminderController@store')->name('reminders.store
 Route::get('reset-password/{id}/{token}','ReminderController@edit')->name('reminders.edit');
 Route::post('reset-password/{id}/{token}','ReminderController@update')->name('reminders.update');
 // Route for user
-Route::group(['prefix' => 'semua','middleware'=>'sentinel'], function() {
-    Route::get('home','HomesController@index')->name('home');
+Route::group(['prefix' => 'User','middleware'=>['sentinel','hasUser']], function() {
+    Route::get('home/','HomesController@index')->name('home');
+    Route::post('biodataUserStore','BiodataUsersController@store')->name('biodatauser.store');
+    Route::get('JobUserIndex','JobUsersController@index')->name('jobuser.index');
+    Route::get('JobUserShow/{id}','JobUsersController@show')->name('jobuser.show');
+    Route::get('JobUserStore/{id}','JobUsersController@store')->name('jobuser.store');
+    Route::get('MyApplicationIndex','MyApplicationsController@index')->name('myapplication.index');
+
 });
 
 //route for Admin
@@ -47,6 +53,10 @@ Route::group(['prefix' => 'Admin','middleware'=>['sentinel','hasAdmin']], functi
     Route::get('jobIndex','JobsController@index')->name('job.index');
     Route::get('biodataCreate','BiodatasController@create')->name('biodata.create');
     Route::post('biodataStore','BiodatasController@store')->name('biodata.store');
+    Route::get('biodataEdit/{id}','BiodatasController@edit')->name('biodata.edit');
+    Route::post('biodataUpdate/{id}','BiodatasController@update')->name('biodata.update');
+    Route::get('biodataDestroy/{id}','BiodatasController@destroy')->name('biodata.destroy');
     Route::get('biodataIndex','BiodatasController@index')->name('biodata.index');
+    Route::get('jobapplicationIndex','JobApplicationsController@index')->name('jobapplication.index');
 });
 

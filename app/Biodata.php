@@ -14,4 +14,8 @@ class Biodata extends Model
     {
         return $this->belongsTo('App\User','id_user');
     }
+
+    public function job_applications() {
+        return $this->hasMany('App\Job_application', 'id_biodata');
+    }
 }

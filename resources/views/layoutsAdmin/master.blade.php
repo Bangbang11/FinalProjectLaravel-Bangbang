@@ -82,7 +82,7 @@
           <img src="{{asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Bangbang</a>
+          <a href="#" class="d-block">{{ Sentinel::getUser()->first_name }}</a>
         </div>
       </div>
 
@@ -105,7 +105,7 @@
               <a href="#" class="nav-link active">
                 <i class="nav-icon fas fa-desktop"></i>
                 <p>
-                  Pekerjaan
+                  Jobs
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
@@ -113,19 +113,19 @@
                 <li class="nav-item">
                   <a href="{{route('category.create')}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Input Kategori Pekerjaan</p>
+                    <p>Input Job Category</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="{{route('job.create')}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Input Pekerjaan Baru</p>
+                    <p>Input New Job</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="{{route('job.index')}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>List Pekerjaan</p>
+                    <p>List Jobs</p>
                   </a>
                 </li>
               </ul>
@@ -137,7 +137,7 @@
               <a href="#" class="nav-link active">
                 <i class="nav-icon fas fa-desktop"></i>
                 <p>
-                  Pelamar
+                  User
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
@@ -145,18 +145,29 @@
                 <li class="nav-item">
                   <a href="{{route('biodata.create')}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Input Pelamar</p>
+                    <p>Input New User</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="{{route('biodata.index')}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>List Pelamar</p>
+                    <p>List Users</p>
                   </a>
                 </li>
               </ul>
             </li>
           </ul>
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+              <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
+              <li class="nav-item has-treeview menu-open">
+                <a href="{{route('jobapplication.index')}}" class="nav-link active">
+                  <i class="nav-icon fas fa-desktop"></i>
+                  <p>
+                    Job Applications
+                  </p>
+                </a>
+              </li>
+            </ul>
       </nav>
       <!-- /.sidebar-menu -->
     </div>

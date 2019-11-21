@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Sentinel;
 use Session;
 use App\Http\Requests\UserRequest;
+use App\Http\Requests\BiodataRequest;
 use DB;
 use App\Biodata;
 use App\User;
@@ -52,6 +53,33 @@ class BiodatasController extends Controller
             DB::rollBack(); //rollback jika ada error pas insert ke db
             Session::flash('error', $errors);
         }
+        return redirect()->route('biodata.index');
+    }
+
+    public function edit($id)
+    {
+        $user = User::find($id);
+        $date = Biodata::where('id_user', $id)->first();
+        return view('admin.editBiodata')->with('user', $user)->with('date', $date);
+    }
+
+    public function update(BiodataRequest $request, $id)
+    {
+        $user = User::find($id);
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        $user->email = $request->email;
+        $user->save();
+        $date = Biodata::where('id_user', $id)->first();
+        $date->date_of_birth = $request->date_of_birth;
+        $date->save();
+        return redirect()->route('biodata.index');
+    }
+
+    public function destroy($id)
+    {
+        User::destroy($id);
+        Biodata::where('id_user',$id)->delete();
         return redirect()->route('biodata.index');
     }
 }

@@ -38,6 +38,7 @@
             </div>
           </div>
         </div>
+        <span class="text-danger">{!!$errors->first('first_name')!!}</span>
         <div class="input-group mb-3">
           <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name">
           <div class="input-group-append">
@@ -46,14 +47,16 @@
             </div>
           </div>
         </div>
+        <span class="text-danger">{!!$errors->first('last_name')!!}</span>
         <div class="input-group mb-3">
-          <input type="date" class="form-control" id="date" name="date" placeholder="Tanggal Lahir">
+          <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" placeholder="Tanggal Lahir">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-calendar"></span>
             </div>
           </div>
         </div>
+        <span class="text-danger">{!!$errors->first('date_of_birth')!!}</span>
         <div class="input-group mb-3">
           <input type="email" class="form-control" id="email" name="email" placeholder="Email">
           <div class="input-group-append">
@@ -62,6 +65,7 @@
             </div>
           </div>
         </div>
+        <span class="text-danger">{!!$errors->first('email')!!}</span>
         <div class="input-group mb-3">
           <input type="password" class="form-control" id="password" name="password" placeholder="Password">
           <div class="input-group-append">
@@ -70,6 +74,7 @@
             </div>
           </div>
         </div>
+        <span class="text-danger">{!!$errors->first('password')!!}</span>
         <div class="input-group mb-3">
           <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Retype password">
           <div class="input-group-append">
@@ -78,6 +83,7 @@
             </div>
           </div>
         </div>
+        <span class="text-danger">{!!$errors->first('password_confirmation')!!}</span>
         <div class="row">
           <div class="col-8">
               <label for="agreeTerms">

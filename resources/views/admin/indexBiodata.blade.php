@@ -49,8 +49,8 @@
                     <td>{!! $data->email !!}</td>
                     <td>{!! $data->biodata->date_of_birth !!}</td>
                     <td>
-                      <a href="#"><button class="btn btn-primary" ><i class="fas fa-edit"></i></button></a>
-                      <a href="#"><button class="btn btn-danger" ><i class="fas fa-trash-alt"></i></button></a>
+                      <a href="{{route('biodata.edit',$data->id)}}"><button class="btn btn-primary" ><i class="fas fa-edit"></i></button></a>
+                      <a href="{{route('biodata.destroy',$data->id)}}"><button class="btn btn-danger" ><i class="fas fa-trash-alt"></i></button></a>
                     </td>
                   </tr>
                   @endforeach
