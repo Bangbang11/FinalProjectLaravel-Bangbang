@@ -13,7 +13,16 @@ class UsersController extends Controller
 {
     public function signup()
     {
-        return view('users.signup');
+        if ($user = Sentinel::check() && Sentinel::getUser()->roles()->first()->slug == 'admin') {
+            Session::flash('notice','Anda Sudah Login ');
+            return redirect()->route('homeAdmin');
+        } elseif ($user = Sentinel::check() && Sentinel::getUser()->roles()->first()->slug == 'pelamar') {
+            Session::flash('notice','Anda Sudah Login ');
+            return redirect()->route('home');
+        } else {
+            return view('users.signup');
+        }
+        
     }
 
     public function signup_store(UserRequest $request)

@@ -11,9 +11,12 @@ class SessionsController extends Controller
 {
     public function login()
     {
-        if ($user = Sentinel::check()) {
-            Session::flash('notice','Anda Sudah Login '.$user->first_name.$user->last_name);
-            redirect('/home');
+        if ($user = Sentinel::check() && Sentinel::getUser()->roles()->first()->slug == 'admin') {
+            Session::flash('notice','Anda Sudah Login ');
+            return redirect()->route('homeAdmin');
+        } elseif ($user = Sentinel::check() && Sentinel::getUser()->roles()->first()->slug == 'pelamar') {
+            Session::flash('notice','Anda Sudah Login ');
+            return redirect()->route('home');
         } else {
             return view('sessions.login');
         }

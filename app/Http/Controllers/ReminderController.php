@@ -13,7 +13,15 @@ class ReminderController extends Controller
 {
     public function create()
     {
-        return view('reminders.create');
+        if ($user = Sentinel::check() && Sentinel::getUser()->roles()->first()->slug == 'admin') {
+            Session::flash('notice','Anda Sudah Login ');
+            return redirect()->route('homeAdmin');
+        } elseif ($user = Sentinel::check() && Sentinel::getUser()->roles()->first()->slug == 'pelamar') {
+            Session::flash('notice','Anda Sudah Login ');
+            return redirect()->route('home');
+        } else {
+            return view('reminders.create');
+        }
     }
 
     public function store(Request $request)
